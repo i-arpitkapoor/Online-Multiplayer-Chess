@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Online Multiplayer Chess</title>
+    <link rel="icon" href="./img/icon.png">
+    <link rel="stylesheet" href="./css/chessboard-1.0.0.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+</head>
+
+<body style="background-color: #EFE2BA;">
+    {{!-- NavBar --}}
+    <ul class="nav p-1 pl-3 fixed-top" style="background-color:#4056A1;">
+        <li class="nav-item px-1">
+            <a class="nav-link" href="./index.html" style="color: white">Home</a>
+        </li>
+        <li class="nav-item px-2">
+            <a class="nav-link" href="./about.html" style="color: white">About</a>
+        </li>
+    </ul>
+    {{!-- /NavBar --}}
+    <div id="home">
+        <div class="main container-fluid text-center mt-4" style="color:white; background-color:#D79922;">
+            <h1 class="py-5" style="font-size: 500%">Play Chess Online</h1>
+        </div>
+    </div>
+
+
+    <!-- Input Form -->
+    <div id="joinFormDiv" class="p-3 my-4 rounded"
+        style="background-color: #C5CBE3; min-width:480px; width:30%; margin: auto;">
+        <form id="joinForm">
+            <labe>Name:</labe>
+            <input type="text" placeholder="Name" class="my-2 p-2 form-control">
+            <label>Room:</label>
+            <input type="text" placeholder="Room" class="mb-2 p-2 form-control">
+            <div class="row">
+                <button class="btn btn-warning px-5 mt-2 mx-3"
+                    style="background-color: #4056A1; color: white; font-size: 20px;">Join</button>
+                <p id="message" style="margin-top: 16px;">Hi</p>
+            </div>
+        </form>
+    </div>
+    <!-- /Input Form -->
+
+    <div class="row mr-0" style="margin-bottom: 50px;">
+
+        <!-- Chess Board -->
+        <div id="chessGame" class="col-md-5" style="display: none;">
+            <div id="myBoard" style="width: 450px; margin: auto; margin-top: 4%;"></div>
+        </div>
+
+        <!-- Status and PGN -->
+        <div  id="statusPGN" class="col-md-3" style="margin-top: 1.49%; display: none;">
+                <div class="rounded" style="background-color: #F1C320;">
+                        <label class="mt-2" style="text-align: center; width: 100%; font-size: 25px; border-bottom: 2px solid black;"><strong>Status</strong></label>
+                        <div id="status" style="text-align: center; font-size: 20px;" class="pb-2">Your Turn</div>
+                </div>
+                <div class="rounded mt-2" style="background-color: #F1C320; max-height: 353px; overflow-y: auto; height: 500px;">
+                        <label class="mt-2" style="text-align: center; width: 100%; font-size: 25px; border-bottom: 2px solid black;"><strong>History</strong></label>
+                        <div id="pgn" class="mx-2 pb-2"></div>
+                </div>
+        </div>
+        
+        <!-- Chatting window -->
+        <div class="col-md-4" id="chat" style=" margin: auto ; margin-top: 1.49%; display: none;">
+            <input class="form-control" type="text" placeholder="Send a Message" style="width: 80%; display: inline-flex">
+            <button id="send" class="btn btn-warning pb-1 ml-2" style="background-color: #4056A1; color: white; font-size: 18px;">Send</button>
+            <div id="chatContent" class="mt-2 pl-3 pt-3 rounded" style="background-color: #C5CBE3; max-height: 400px; overflow-y: auto; height: 500px; font-size: 20px; font-style: italic;">
+                <p><i>Your messages go here: </i></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="./js/chessboard-1.0.0.min.js"></script>
+    <!-- <script src="./js/chess.js"></script> -->
+    <script src="./js/app.js"></script>
+</body>
+
+</html>
